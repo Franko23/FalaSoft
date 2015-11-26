@@ -1,0 +1,90 @@
+﻿@model KingdomWeb.Models.Usuario
+
+@{
+    ViewBag.Title = "Servicios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Servicios</h2>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('.chk1').change(function () {
+            if ($(this).is(":checked")) {
+                $('#btn1').removeAttr('disabled');
+            }
+            else {
+                var isChecked = false;
+                $('.chk1').each(function () {
+                    if ($(this).is(":checked")) {
+                        $('#btn1').removeAttr('disabled');
+                        isChecked = true;
+                    }
+                });
+                if (!isChecked) {
+                    $('#btn1').attr('disabled', 'disabled');
+                }
+            }
+
+
+        })
+    });
+</script>
+
+
+
+
+
+<div class="ch-item">
+    <div class="ch-info-wrap">
+        <div class="ch-info">
+            <div class="ch-info-front ch-img-3"></div>
+            <div class="ch-info-back">
+                <h4>KING MENU</h4>
+
+                <input type="checkbox" class="chk1" name="name" />
+                <div class="col-xs-12">
+                    <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                        <label class="btn">
+                            <input type="checkbox" class="chk1">
+                            <i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div id="check-awesome" class="form-group">
+
+                    <script type="text/javascript">
+                        var cont2 = 0;
+                        function mas2() {
+                            cont2++;
+                            numero2 = document.getElementById('num2');
+                            numero2.value = cont2;
+                        }
+                        function menos2() {
+                            if (numero2.value >= 1) {
+                                numero2 = document.getElementById('num2');
+                                cont2--;
+                                numero2.value = cont2;
+                            }
+                            else {
+
+                                alert("Eleccion minima '0'");
+                            }
+
+                        }
+                    </script>
+                    <div class="col-sm-4">
+                        <input type="button" id="btn1" value="-" class="btn btn-danger" onclick="menos2()"disabled>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="num2">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="button" value="+" class="btn btn-primary" onclick="mas2()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

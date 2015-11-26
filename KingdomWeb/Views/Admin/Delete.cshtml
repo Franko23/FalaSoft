@@ -1,0 +1,19 @@
+﻿@model KingdomWeb.Models.Usuario
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3>¿Estás seguro que quiere eliminar a " @Html.DisplayFor(model => model.NombreUsuario)  ?</h3>
+<legend></legend>
+<br />
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Eliminar" /> |
+        @Html.ActionLink("Ver Usuarios", "Index")
+    </p>
+}

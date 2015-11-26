@@ -1,0 +1,364 @@
+﻿@model KingdomWeb.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('.chk1').change(function () {
+            if ($(this).is(":checked")) {
+                $('#boton1-1').removeAttr('disabled') + $('#boton1-2').removeAttr('disabled') + $('#num1-1').removeAttr('disabled');
+            }
+            else {
+                var isChecked = false;
+                $('.chk1').each(function () {
+                    if ($(this).is(":checked")) {
+                        $('#boton1-1').removeAttr('disabled') , $('#boton1-2').removeAttr('disabled');
+                        isChecked = true;
+                    }
+                });
+                if (!isChecked) {
+                    $('#boton1-1').attr('disabled', 'disabled') , $('#boton1-2').removeAttr('disabled');
+                }
+            }
+
+
+        })
+    });
+</script>
+
+@*<form name="formulario">
+    <input type="checkbox" value="1" onclick="javascript:validar(this);">
+    <input type="Button" value="Enviar" name="boton" disabled>
+</form>*@
+
+
+
+<h3 class="tittle">NUESTROS SERVICIOS</h3>
+<div>
+    @*<form name="formulario">
+        <input type="button" name="comprar" value="COMPRAR" class="css3button" disabled>
+    </form>*@
+</div>
+<div>
+
+    <ul class="ch-grid">
+
+
+
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-1"></div>
+                        <div class="ch-info-back">
+                            <h4>PORCIÓN COMPLETA</h4>
+
+                            <input type="checkbox" class="chk1" name="name" />
+                                <div class="col-xs-12">
+                                    <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                        <label class="btn">
+                                            <input type="checkbox" id="chk1" name="name"><i class=" fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="check-awesome" class="form-group">
+
+                                    <script type="text/javascript">
+                                        var cont = 0;
+                                        function mas() {
+                                            cont++;
+                                            numero = document.getElementById('num');
+                                            numero.value = cont;
+                                        }
+                                        function menos() {
+                                            if (numero.value >= 1) {
+                                                numero = document.getElementById('num');
+                                                cont--;
+                                                numero.value = cont;
+                                            }
+                                            else {
+
+                                                alert("Eleccion minima '0'");
+                                            }
+
+                                        }
+                                        
+                                    </script>
+                                    
+                                    <div class="col-sm-4">
+                                        <input type="button" id="boton1-1" value="-" class="btn btn-danger" onclick="menos()" disabled>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="num1-1" disabled>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="button" id="boton1-2" value="+" class="btn btn-primary" onclick="mas()" disabled>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-2"></div>
+                        <div class="ch-info-back">
+                            <h4>MEDIA PORCIÓN</h4>
+                            <div class="col-xs-12">
+                                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn">
+                                        <input type="checkbox" name='email1'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="check-awesome" class="form-group">
+
+                                <script type="text/javascript">
+                                    var cont1 = 0;
+                                    function mas1() {
+                                        cont1++;
+                                        numero1 = document.getElementById('num1');
+                                        numero1.value = cont1;
+                                    }
+                                    function menos1() {
+                                        if (numero1.value >= 1) {
+                                            numero1 = document.getElementById('num1');
+                                            cont1--;
+                                            numero1.value = cont1;
+                                        }
+                                        else {
+
+                                            alert("Eleccion minima '0'");
+                                        }
+
+
+                                    }
+                                </script>
+                                <div class="col-sm-4">
+                                    <input type="button" value="-" class="btn btn-danger" onclick="menos1()">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="num1">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="+" class="btn btn-primary" onclick="mas1()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-3"></div>
+                        <div class="ch-info-back">
+                            <h4>KING MENU</h4>
+                            <div class="col-xs-12">
+                                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn">
+                                        <input type="checkbox" name='email1'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="check-awesome" class="form-group">
+
+                                <script type="text/javascript">
+                                    var cont2 = 0;
+                                    function mas2() {
+                                        cont2++;
+                                        numero2 = document.getElementById('num2');
+                                        numero2.value = cont2;
+                                    }
+                                    function menos2() {
+                                        if (numero2.value >= 1) {
+                                            numero2 = document.getElementById('num2');
+                                            cont2--;
+                                            numero2.value = cont2;
+                                        }
+                                        else {
+
+                                            alert("Eleccion minima '0'");
+                                        }
+
+                                    }
+                                </script>
+                                <div class="col-sm-4">
+                                    <input type="button" value="-" class="btn btn-danger" onclick="menos2()">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="num2">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="+" class="btn btn-primary" onclick="mas2()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-4"></div>
+                        <div class="ch-info-back">
+                            <h4>QUEEN MENU</h4>
+                            <div class="col-xs-12">
+                                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn">
+                                        <input type="checkbox" name='email1'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="check-awesome" class="form-group">
+
+                                <script type="text/javascript">
+                                    var cont3 = 0;
+                                    function mas3() {
+                                        cont3++;
+                                        numero3 = document.getElementById('num3');
+                                        numero3.value = cont3;
+                                    }
+                                    function menos3() {
+                                        if (numero3.value >= 1) {
+                                            numero3 = document.getElementById('num3');
+                                            cont3--;
+                                            numero3.value = cont3;
+                                        }
+                                        else {
+
+                                            alert("Eleccion minima '0'");
+                                        }
+
+                                    }
+                                </script>
+                                <div class="col-sm-4">
+                                    <input type="button" value="-" class="btn btn-danger" onclick="menos3()">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="num3">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="+" class="btn btn-primary" onclick="mas3()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-5"></div>
+                        <div class="ch-info-back">
+                            <h4>MEDIO: SOLO POLLO</h4>
+                            <div class="col-xs-12">
+                                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn">
+                                        <input type="checkbox" name='email1'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="check-awesome" class="form-group">
+
+                                <script type="text/javascript">
+                                    var cont4 = 0;
+                                    function mas4() {
+                                        cont4++;
+                                        numero4 = document.getElementById('num4');
+                                        numero4.value = cont4;
+                                    }
+                                    function menos4() {
+                                        if (numero4.value >= 1) {
+                                            numero4 = document.getElementById('num4');
+                                            cont4--;
+                                            numero4.value = cont4;
+                                        }
+                                        else {
+
+                                            alert("Eleccion minima '0'");
+                                        }
+
+                                    }
+                                </script>
+                                <div class="col-sm-4">
+                                    <input type="button" value="-" class="btn btn-danger" onclick="menos4()">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="num4">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="+" class="btn btn-primary" onclick="mas4()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ch-item">
+                <div class="ch-info-wrap">
+                    <div class="ch-info">
+                        <div class="ch-info-front ch-img-6"></div>
+                        <div class="ch-info-back">
+                            <h4>CUARTO: SOLO POLLO</h4>
+                            <div class="col-xs-12">
+                                <div class="btn-group btn-group-vertical" data-toggle="buttons">
+                                    <label class="btn">
+                                        <input type="checkbox" name='email1'><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i> <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="check-awesome" class="form-group">
+
+                                <script type="text/javascript">
+                                    var cont5 = 0;
+                                    function mas5() {
+                                        cont5++;
+                                        numero5 = document.getElementById('num5');
+                                        numero5.value = cont5;
+                                    }
+                                    function menos5() {
+                                        if (numero5.value >= 1) {
+                                            numero5 = document.getElementById('num5');
+                                            cont5--;
+                                            numero5.value = cont5;
+                                        }
+                                        else {
+
+                                            alert("Eleccion minima '0'");
+                                        }
+
+                                    }
+                                </script>
+                                <div class="col-sm-4">
+                                    <input type="button" value="-" class="btn btn-danger" onclick="menos5()">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="num5">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="+" class="btn btn-primary" onclick="mas5()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

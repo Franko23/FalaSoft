@@ -1,0 +1,55 @@
+﻿@model KingdomWeb.Models.Usuario
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.UsuarioId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NombreUsuario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NombreUsuario)
+            @Html.ValidationMessageFor(model => model.NombreUsuario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContraseñaUsuario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContraseñaUsuario)
+            @Html.ValidationMessageFor(model => model.ContraseñaUsuario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailUsuario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailUsuario)
+            @Html.ValidationMessageFor(model => model.EmailUsuario)
+        </div>
+
+        <p>
+            <input type="submit" value="Guardar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Ver Usuarios", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
