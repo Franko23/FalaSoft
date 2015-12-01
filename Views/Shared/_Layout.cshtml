@@ -1,0 +1,287 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Servicio Web</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style - login.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="../Scripts/js/jquery-1.11.1.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script src="~/Scripts/js/modernizr.js"></script> <!-- Modernizr -->
+    <script type="text/javascript" src="~/Scripts/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Scripts/js/checkbox.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-30027142-1', 'w3layouts.com');
+        ga('send', 'pageview');
+    </script>
+    <script async type='text/javascript' src='//cdn.fancybar.net/ac/fancybar.js?zoneid=1502&serve=C6ADVKE&placement=w3layouts' id='_fancybar_js'></script>
+
+
+    @*@Html.ActionLink("Home", "Index", "Home")*@
+
+
+    <header role="banner">
+ @if (Request.IsAuthenticated)
+            {
+                
+                
+            <nav class="main-nav">
+                <strong class="usuario">@Html.Encode(User.Identity.Name)</strong>
+                <ul>
+                    <li>
+                        <a class="cd-logout" href="#0">
+                            @Html.ActionLink("Log Out", "Logout", "Usuario")
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+                
+            }
+            else
+            {
+
+        <nav class="main-nav">
+            <ul>
+                <!-- inser more links here -->
+                
+                <li><a class="cd-signin" href="#0">
+                        @Html.ActionLink("Ingresar", "LogIn", "Usuario")
+                    </a></li>
+                <li><a class="cd-signup" href="#0">
+                        @Html.ActionLink("Registrar", "Create", "Usuario")
+                    </a></li>
+            </ul>
+        </nav>
+
+
+        
+            }
+        
+
+    </header>
+
+    <!--class para el login-->
+    <div class="cd-user-modal">
+
+        <div class="cd-user-modal-container">
+
+            <ul class="cd-switcher">
+                <li><a href="#0">Ingresar</a></li>
+                <li><a href="#0">Registrar</a></li>
+            </ul>
+
+            <div id="cd-login">
+                <!-- login del form -->
+                <form class="cd-form">
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="signin-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-password" for="signin-password">Contraseña</label>
+                        <input class="full-width has-padding has-border" id="signin-password" type="text" placeholder="Contraseña">
+                        <a href="#0" class="hide-password">Ocultar</a>
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <input type="checkbox" id="remember-me" checked>
+                        <label for="remember-me">Recordar</label>
+                    </p>
+
+                    <p class="fieldset">
+                        <input class="full-width" type="submit" value="Ingresar">
+                    </p>
+                </form>
+
+                <p class="cd-form-bottom-message"><a href="#0">¿Olvidaste la contraseña?</a></p>
+                <!-- <a href="#0" class="cd-close-form">Close</a> -->
+            </div> <!-- cd-login -->
+
+            <div id="cd-signup">
+                <!-- Registro form -->
+                <form class="cd-form">
+                    <p class="fieldset">
+                        <label class="image-replace cd-username" for="signup-username">Usuario</label>
+                        <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Usuario">
+                        @*<span class="cd-error-message">Error message here!</span>*@
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="signup-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+                        @*<span class="cd-error-message">Error message here!</span>*@
+                    </p>
+
+                    <p class="fieldset">
+                        <label class="image-replace cd-password" for="signup-password">Contraseña</label>
+                        <input class="full-width has-padding has-border" id="signup-password" type="text" placeholder="Contraseña">
+                        <a href="#0" class="hide-password">Ocultar</a>
+                        @*<span class="cd-error-message">Error message here!</span>*@
+                    </p>
+
+                    <p class="fieldset">
+                        <input type="checkbox" id="accept-terms">
+                        <label for="accept-terms">Acepto los <a href="#0">Terminos y Condiciones</a></label>
+                    </p>
+
+                    <p class="fieldset">
+                        <input class="full-width has-padding" type="submit" value="Crear cuenta">
+                    </p>
+                </form>
+
+                <!-- <a href="#0" class="cd-close-form">Close</a> -->
+            </div> <!-- cd-signup -->
+
+            <div id="cd-reset-password">
+                <!-- reset password form -->
+                <p class="cd-form-message">¿Olvidaste tu contraseña?. Por favor ingresa tu e-mail. Recibirás un mensaje para recuperar tu cuenta.</p>
+
+                <form class="cd-form">
+                    <p class="fieldset">
+                        <label class="image-replace cd-email" for="reset-email">E-mail</label>
+                        <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+                        <span class="cd-error-message">Error message here!</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <input class="full-width has-padding" type="submit" value="Recuperar cuenta">
+                    </p>
+                </form>
+
+                <p class="cd-form-bottom-message"><a href="#0">Regresar para Ingresar</a></p>
+            </div> <!-- cd-reset-password -->
+            <a href="#0" class="cd-close-form">Cerrar</a>
+        </div> <!-- cd-user-modal-container -->
+    </div> <!-- cd-user-modal -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../Scripts/js/main.js"></script> <!-- Gem jQuery -->
+
+
+
+    <div class="banner page-head">
+        <div class="container">
+            <div class="header-nav">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" class="f1"></a></li>
+                        <li><a href="#" class="f2"></a></li>
+                        <li><a href="#" class="f3"></a></li>
+                        <li><a href="#" class="f4"></a></li>
+                    </ul>
+                </div>
+                <div class="logo">
+                    <img src="~/Content/images/logo.png" alt="" />
+
+                </div>
+                <div class="navigation">
+                    <span class="menu"><img src="../Content/images/menu.png" alt="" /></span>
+                    <nav class="cl-effect-11" id="cl-effect-11">
+                        <ul class="nav1">
+                            <li><a href="index.html" data-hover="INICIO">@Html.ActionLink("INICIO","Index","Home")
+                                
+                                </a></li>
+
+                            <li><a href="#" data-hover="SERVICIOS">@Html.ActionLink("SERVICIOS", "Servicios", "Home")</a></li>
+
+                            <li><a href="#" data-hover="CONTACTOS">@Html.ActionLink("CONTACTOS", "Contactos", "Home")</a></li>
+                        </ul>
+                    </nav>
+                    <!-- script para menu -->
+                    <script>
+                        $("span.menu").click(function () {
+                            $("ul.nav1").slideToggle(300, function () {
+                                // Animation complete.
+                            });
+                        });
+                    </script>
+                    <!-- //script parA menu -->
+
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!--about-->
+    <!--start-teacher-->
+    <div class="staff">
+        <div class="container">
+
+
+
+            @RenderBody()
+
+
+
+
+        </div>
+    </div>
+    <!--//about-->
+    <!-- copy -->
+    <div class="copy-right">
+        <div class="container">
+            <p> FAL@SOFT - 2015</p>
+        </div>
+    </div>
+    <!-- //copy -->
+    <!-- for bootstrap working -->
+    <script src="../Scripts/js/bootstrap.js"></script>
+    <!-- //for bootstrap working -->
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

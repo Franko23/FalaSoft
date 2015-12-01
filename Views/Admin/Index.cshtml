@@ -1,0 +1,47 @@
+﻿@model IEnumerable<KingdomWeb.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink(" Nuevo + ' ", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreUsuario) |
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.ContraseñaUsuario) |
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailUsuario )
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreUsuario) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContraseñaUsuario) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailUsuario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UsuarioId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioId })
+        </td>
+    </tr>
+}
+
+</table>
